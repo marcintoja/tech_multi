@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zadanie 1</title>
+        <style>
+            #plotno{
+            border: 1px solid #333;
+            margin: 0 auto;
+        }
+
+        .control_button {
+            display: inline-block;
+            font-size: 1.25em;
+            padding: 10px;
+            background-color: #348723;
+            color: #fff;
+        }
+
+        .control_button:hover{
+            background-color: #348799;
+            cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="toolbar">
+            <div id="pause_button" class="control_button">Start</div>
+        </div>
+        <canvas id="plotno" width="500" height="400"></canvas>
+        <script>
+const plotno = document.getElementById("plotno");
+const ctx = plotno.getContext("2d");
+const kwadrat = { a:20, x:10, y:10, dx:1, dy:0 };
+const pause_button = document.querySelector("#pause_button");
+let isRunning = false;
+document.addEventListener("DOMContentLoaded", function() {
+    
+    pause_button.addEventListener("click", (event) =>{
+        isRunning = !isRunning;
+        event.target.innerHTML = (isRunning) ? "Stop" : "Start";
+        (isRunning) ? start() : stop();
+
+    });
+});
+
+function start(){
+    isRunning = true;
+    update();
+}
+
+function stop(){
+    isRunning = false;
+}
+
+function update(){
+    if(isRunning){
+        rysuj_kwadrat();
+        requestAnimationFrame(update);
+    }
+}
+
+const rysuj_kwadrat = function() {
+
+    if(kwadrat.dx > 0 && (kwadrat.x+kwadrat.dx + kwadrat.a + 10) > plotno.width){
+        kwadrat.dx = 0;
+		kwadrat.dy = 1;
+    }
+    else if(kwadrat.dx < 0 && (kwadrat.x+kwadrat.dx - 10 < 0)){
+        kwadrat.dx = 0;
+		kwadrat.dy = -1;
+    }
+	else if(kwadrat.dy > 0 && (kwadrat.y+kwadrat.dy + kwadrat.a + 10) > plotno.height){
+        kwadrat.dx = -1;
+		kwadrat.dy = 0;
+	}
+	else if(kwadrat.dy < 0 && (kwadrat.y+kwadrat.dy - 10 < 0)){
+        kwadrat.dx = 1;
+		kwadrat.dy = 0;
+	}	
+    kwadrat.x+=kwadrat.dx;
+	kwadrat.y+=kwadrat.dy;
+
+    ctx.clearRect(0, 0, plotno.width, plotno.height);
+
+    ctx.fillStyle = '#000';
+    ctx.fillRect(kwadrat.x, kwadrat.y, kwadrat.a, kwadrat.a);
+}
+        </script>
+    </body>
+</html>

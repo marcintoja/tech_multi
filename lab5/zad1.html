@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Zadanie 1</title>
+	<style>
+	.block {
+	background-color: #009999;
+	height: 100px;
+	width: 100px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+	<button>Start</button><br><br>
+	<div id="block" class="block"></div>
+	</div>
+	
+	<script>
+		$(document).ready(function(){
+			$("button").click(function(){
+				$("#block").fadeToggle(3000);
+			});		
+		});
+	</script> 
+</body>
+</html>

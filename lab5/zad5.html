@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Zadanie 5</title>
+	<style>
+	.block {
+	background-color: #009999;
+	height: 100px;
+	width: 100px;
+	}
+
+
+	</style>
+</head>
+<body>
+
+	<input type="textarea" />
+	<p></p>
+</body>
+
+<script>
+
+$("input").keyup(function() { 
+
+            $("p").html($(this).val())
+            })
+
+</script>
+</html>

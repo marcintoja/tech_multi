@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Zadanie 6</title>
+	<style>
+	.block {
+	background-color: #009999;
+	height: 100px;
+	width: 100px;
+	}
+	</style>
+</head>
+<body>
+	<input type="textarea" maxlength="200"/>
+	<h1></h1>
+	<p></p>
+</body>
+
+<script>
+
+$("input").keyup(function() { 
+			let liczba=200 - $(this).val().length
+			console.log(liczba)
+			$("h1").html($(this).val())
+            $("p").html(`mozesz jeszcze wprowadzic ${liczba} znakow`)
+			
+            })
+
+
+</script>
+</html>

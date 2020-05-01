@@ -1,0 +1,56 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Zadanie 7</title>
+	<style>
+	.caly {
+	width: 500px;
+	height: 500px;
+
+	}
+	
+
+	
+	.caly > div {
+	position: relative;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px solid red;
+	margin-top: 5px;
+	}
+
+	</style>
+</head>
+<body>
+<div class="caly">
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+</div>
+<button>start</button>
+</body>
+
+<script>
+let liczebnik =0;
+$("button").click(function()  {
+
+if (liczebnik==0) {
+	$(".caly > div").each(function(index) {
+		console.log(index)
+		$(this).delay(index * 1000).animate({left: '500px'}, 1000);
+	});
+	liczebnik =1;
+	}
+	else
+	{
+	$(".caly > div").each(function(index) {
+		console.log(index)
+		$(this).delay(index * 1000).animate({left: '0px'}, 1000);
+	});
+	liczebnik =0;
+	}
+})
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zadanie 3</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#caly > div").click(function(){
+	
+	if(!$(this).hasClass("active")) {
+	$("#caly").find("div.active").children(".panel").css("display", "none");
+	$("#caly").find("div.active").removeClass("active");
+	}
+  
+	$(this).toggleClass("active");
+	$(this).children(".panel").fadeToggle("slow")
+  
+  
+  });
+});
+</script>
+<style> 
+.panel, .flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  
+}
+#caly {
+	display: flex;
+}
+
+#caly > div {
+width: 150px;
+}
+
+.panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+</head>
+<body>
+ <div id="caly">
+ <div>
+<div class="flip">W dół i w górę.</div>
+<div class="panel">Hello world!</div>
+</div>
+<div>
+<div class="flip">W dół i w górę.</div>
+<div class="panel">Hello world!</div>
+</div>
+<div>
+<div class="flip">W dół i w górę.</div>
+<div class="panel">Hello world!</div>
+</div>
+</div>
+</body>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Zadanie 9</title>
+	<style>
+	.block {
+	background-color: #009999;
+	height: 100px;
+	width: 100px;
+	}
+	.baner {
+height: 100px;
+width: 100%;
+background-color:cornsilk;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="baner"><p></p></div>
+	<input id="pole" type="textarea" /> <button>Animacja</button>
+</body>
+
+<script>
+
+$("input").keyup(function() { 
+
+            $("p").html($(this).val())
+            })
+
+$("button").click(function()  {
+   // const value = $(".baner").text()
+    $("p").animate({ 
+        fontSize: '3em'   
+    })
+
+    $("p").fadeOut("callback")
+    setTimeout(function() {
+       $("#pole").val('')
+    }, 1000)
+
+})
+</script>
+</html>
